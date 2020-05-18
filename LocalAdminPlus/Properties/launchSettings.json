@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "LocalAdmin": {
+      "commandName": "Project",
+      "commandLineArgs": "7777",
+      "workingDirectory": "D:\\EXILED"
+    }
+  }
+}

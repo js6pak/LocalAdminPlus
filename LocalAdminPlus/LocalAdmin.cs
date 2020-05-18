@@ -23,7 +23,7 @@ namespace LocalAdmin.V2
 
     internal class LocalAdmin
     {
-        public const string VersionString = "2.2.1";
+        public const string VersionString = "0.0.1";
         public string LocalAdminExecutable { get; private set; }
 
         private CommandService commandService = new CommandService();
@@ -37,7 +37,7 @@ namespace LocalAdmin.V2
 
         public void Start(string[] args)
         {
-            Console.Title = "LocalAdmin v. " + VersionString;
+            Console.Title = "LocalAdmin+ v" + VersionString;
 
             try
             {
@@ -71,7 +71,7 @@ namespace LocalAdmin.V2
                     }
                 }
 
-                Console.Title = "LocalAdmin v. " + VersionString + " on port " + gamePort;
+                Console.Title += " | port " + gamePort;
 
                 SetupPlatform();
                 RegisterCommands();
@@ -209,10 +209,27 @@ namespace LocalAdmin.V2
                 {
                     FileName = scpslExecutable,
                     Arguments = $"-batchmode -nographics -nodedicateddelete -port{gamePort} -console{consolePort} -id{Process.GetCurrentProcess().Id}",
-                    CreateNoWindow = true
+                    CreateNoWindow = true,
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true
                 };
 
                 gameProcess = Process.Start(startInfo);
+
+                if (gameProcess == null)
+                {
+                    ConsoleUtil.WriteLine("Failed to start process!", ConsoleColor.Red);
+                    ConsoleUtil.WriteLine("Press any key to close...", ConsoleColor.DarkGray);
+
+                    Exit();
+                    return;
+                }
+
+                gameProcess.OutputDataReceived += (sender, e) =>
+                {
+                    Logger.Log(e.Data, Logger.Type.Scp);
+                };
+                gameProcess.BeginOutputReadLine();
             }
             else
             {

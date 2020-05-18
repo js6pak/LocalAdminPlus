@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29201.188
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalAdmin V2", "LocalAdmin V2.csproj", "{F6E692D6-0CC5-4742-829E-14E382C250E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalAdmin", "LocalAdminPlus\LocalAdmin.csproj", "{F6E692D6-0CC5-4742-829E-14E382C250E7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocalAdminPlus.Companion", "LocalAdminPlus.Companion\LocalAdminPlus.Companion.csproj", "{DC8F320D-6B43-4C34-B161-F55531251A41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,14 @@ Global
 		{F6E692D6-0CC5-4742-829E-14E382C250E7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F6E692D6-0CC5-4742-829E-14E382C250E7}.Release|x64.ActiveCfg = Release|x64
 		{F6E692D6-0CC5-4742-829E-14E382C250E7}.Release|x64.Build.0 = Release|x64
+		{DC8F320D-6B43-4C34-B161-F55531251A41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC8F320D-6B43-4C34-B161-F55531251A41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC8F320D-6B43-4C34-B161-F55531251A41}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DC8F320D-6B43-4C34-B161-F55531251A41}.Debug|x64.Build.0 = Debug|Any CPU
+		{DC8F320D-6B43-4C34-B161-F55531251A41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC8F320D-6B43-4C34-B161-F55531251A41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC8F320D-6B43-4C34-B161-F55531251A41}.Release|x64.ActiveCfg = Release|Any CPU
+		{DC8F320D-6B43-4C34-B161-F55531251A41}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

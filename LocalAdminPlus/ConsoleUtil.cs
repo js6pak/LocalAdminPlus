@@ -42,7 +42,7 @@ namespace LocalAdmin.V2
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.BackgroundColor = ConsoleColor.Black;
 
-                //Logger.Log(content);
+                Logger.Log(content);
             }
         }
 
@@ -72,7 +72,7 @@ namespace LocalAdmin.V2
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.BackgroundColor = ConsoleColor.Black;
 
-                //Logger.Log(content);
+                Logger.Log(content);
             }
         }
 	}

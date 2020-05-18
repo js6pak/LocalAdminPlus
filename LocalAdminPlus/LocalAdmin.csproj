@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>LocalAdmin.V2</RootNamespace>
+    <Configurations>Debug;Release;Windows x64</Configurations>
+    <Authors>KernelError, zabszk, js6pak</Authors>
+    <Product>LocalAdminPlus</Product>
+    <Company>Northwood Studios</Company>
+    <PackageId>LocalAdmin V2</PackageId>
+    <Copyright>MIT :)</Copyright>
+    <Platforms>AnyCPU;x64</Platforms>
+    <AssemblyName>LocalAdmin</AssemblyName>
+    <CrossGenDuringPublish>false</CrossGenDuringPublish>
+    <TrimUnusedDependencies>true</TrimUnusedDependencies>
+    <Version>0.0.1</Version>
+    <RootAllApplicationAssemblies>false</RootAllApplicationAssemblies>
+    <IlcGenerateCompleteTypeMetadata>true</IlcGenerateCompleteTypeMetadata>
+    <IlcDisableReflection>false</IlcDisableReflection>
+    <IlcGenerateStackTraceData>true</IlcGenerateStackTraceData>
+    <IlcOptimizationPreference>Speed</IlcOptimizationPreference>
+    <IlcFoldIdenticalMethodBodies>true</IlcFoldIdenticalMethodBodies>
+    <LangVersion>8</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DefineConstants />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Windows x64' ">
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.DotNet.ILCompiler" Version="1.0.0-alpha-*" />
+  </ItemGroup>
+</Project>

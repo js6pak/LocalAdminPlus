@@ -12,9 +12,9 @@ namespace LocalAdmin.V2
         public event EventHandler<string>? Received;
 
         private readonly TcpListener listener;
-        private TcpClient? client;
-        private NetworkStream? networkStream;
-        private StreamReader? streamReader;
+        private TcpClient client;
+        private NetworkStream networkStream;
+        private StreamReader streamReader;
 
         internal volatile bool Connected;
         private volatile bool exit = true;
@@ -32,7 +32,7 @@ namespace LocalAdmin.V2
                 exit = false;
 
                 listener.Start();
-                listener.BeginAcceptTcpClient(new AsyncCallback((result) =>
+                listener.BeginAcceptTcpClient(result =>
                 {
                     client = listener.EndAcceptTcpClient(result);
                     networkStream = client.GetStream();
@@ -51,13 +51,19 @@ namespace LocalAdmin.V2
 
                             if (!streamReader?.EndOfStream == true)
                             {
-                                Received?.Invoke(this, streamReader!.ReadLine()!);
+                                var line = await streamReader.ReadLineAsync();
+                                _ = Task.Run(() =>
+                                {
+                                    Received?.Invoke(this, line);
+                                });
                             }
-
-                            await Task.Delay(10);
+                            else
+                            {
+                                await Task.Delay(10);
+                            }
                         }
                     });
-                }), listener);
+                }, listener);
             }
         }
 
@@ -69,8 +75,8 @@ namespace LocalAdmin.V2
                 exit = true;
 
                 listener.Stop();
-                client!.Close();
-                streamReader!.Dispose();
+                client?.Close();
+                streamReader?.Dispose();
             }
         }
 
